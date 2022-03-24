@@ -36,13 +36,20 @@ public class DateCalendrier extends Date implements ConstantesCalendrier, Compar
     public String toString(){
         return super.toString()+","+JOURS_SEMAINE[chJourSem-1];
     }
-    public Date dateDuLendemain(){
-        return super.dateDuLenDemain();
+    public DateCalendrier dateDuLendemain ()   {
+        Date dateLendemain =  super.dateDuLendemain();
+        return new DateCalendrier (dateLendemain.chJour,dateLendemain.chMois,dateLendemain.chAnnee);
     }
-    public Date dateDeLaVeille(){
-        return super.dateDeLaVeille();
+
+    public DateCalendrier dateDeLaVeille ()  {
+        Date dateVeille =  super.dateDeLaVeille();
+        return new DateCalendrier (dateVeille.chJour,dateVeille.chMois,dateVeille.chAnnee);
     }
+
     public int getNoSem(){
         return chNoSem;
+    }
+    public int getJourSem(){
+        return chJourSem;
     }
 }
