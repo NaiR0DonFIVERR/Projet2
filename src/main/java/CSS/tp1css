@@ -1,0 +1,18 @@
+.root{
+    -fx-padding: 25;
+    -fx-background-color: cornsilk;
+}
+#dateHorsMois{
+    -fx-text-fill: grey;
+}
+#today {
+    -fx-background-color: red;
+}
+.label {
+    -fx-font-size: 1.3em;
+    -fx-text-fill: blue;
+}
+.scroll-pane {
+    -fx-background: #ddf5ee;
+    -fx-border-color: green;
+}
