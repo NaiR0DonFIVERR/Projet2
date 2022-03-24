@@ -72,36 +72,31 @@ public class Date {
                 return 0;
             }
         }
-        public Date dateDuLenDemain(){
-            int lastday = dernierJourDuMois(chMois, chAnnee);
-            int nextDay = chJour + 1;
-            int nextMonth = chMois + 1;
-            int nextYear = chAnnee + 1;
 
-            if (nextDay > lastday){
-                if(chMois == 12){
-                    return new Date(1,1,nextYear);
-                }else{
-                return new Date(1, nextMonth, chAnnee);
-                }
-            } else {
-                return new Date(nextDay, chMois, chAnnee);
-            }
-        }
-        public Date dateDeLaVeille(){
-            int lastday = dernierJourDuMois(chMois, chAnnee);
-            int yesterday = chJour - 1;
-            int lastMonth = chMois - 1;
-            int lastYear = chAnnee - 1;
+    public Date dateDuLendemain ()   {
+        if (chJour < Date.dernierJourDuMois(chMois,chAnnee))
+            return new Date (chJour+1,chMois,chAnnee);
+        if (chMois < 12)
+            return  new Date (1,chMois+1,chAnnee);
+        return  new Date (1,1,chAnnee+1);
+    }
 
-            if (yesterday <= 0){
-                if(chMois == 1){
-                    return new Date(31,12,lastYear);
-                }else{
-                return new Date(lastday, lastMonth, chAnnee);
-                }
-            } else {
-                return new Date(yesterday, chMois, chAnnee);
-            }
-        }
+    public Date dateDeLaVeille ()  {
+        if (chJour > 1)
+            return  new Date (chJour-1,chMois,chAnnee);
+        if (chMois > 1)
+            return new Date (Date.dernierJourDuMois(chMois-1, chAnnee),chMois-1,chAnnee);
+        return new Date (31,12,chAnnee-1);
+    }
+    public int getAnnee() {
+        return chAnnee;
+    }
+
+    public int getJour() {
+        return chJour;
+    }
+
+    public int getMois() {
+        return chMois;
+    }
 }
